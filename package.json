@@ -2,7 +2,7 @@
   "name": "webpack-vue-template",
   "version": "1.0.0",
   "description": "vue结合webpack配置项目模板",
-  "private":true,
+  "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,7 +18,15 @@
   },
   "homepage": "https://github.com/xujianamos/webpack-vue-template#readme",
   "devDependencies": {
+    "css-loader": "^4.2.1",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^6.0.0",
+    "style-loader": "^1.2.1",
+    "url-loader": "^4.1.0",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
+  },
+  "dependencies": {
+    "lodash": "^4.17.19"
   }
 }
