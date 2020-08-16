@@ -4,7 +4,8 @@
   "description": "vue结合webpack配置项目模板",
   "private": true,
   "scripts": {
-    "build": "webpack"
+    "build": "webpack --config ./build/webpack.prod.js",
+    "dev": "webpack-dev-server --config ./build/webpack.dev.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,10 @@
   },
   "homepage": "https://github.com/xujianamos/webpack-vue-template#readme",
   "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
     "autoprefixer": "^9.8.6",
+    "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^4.2.1",
     "extract-text-webpack-plugin": "^3.0.2",
@@ -32,9 +36,13 @@
     "style-loader": "^1.2.1",
     "url-loader": "^4.1.0",
     "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.1.1"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.10.4",
+    "core-js": "^2.6.11",
     "lodash": "^4.17.19"
   }
 }
