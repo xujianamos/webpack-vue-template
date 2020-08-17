@@ -26,28 +26,7 @@ module.exports = {
           },
         ],
       },
-      // 打包css文件
-      { test: /\.css$/, use: ["style-loader", "css-loader", "postcss-loader"] },
-      //   打包scss文件
-      {
-        test: /\.scss$/,
-        use: [
-          "style-loader",
-          {
-            loader: "css-loader",
-            options: {
-              importLoaders: 2,
-            },
-          },
-          "sass-loader",
-          "postcss-loader",
-        ],
-      },
-      // 打包less文件
-      {
-        test: /\.less$/,
-        use: ["style-loader", "css-loader", "less-loader", "postcss-loader"],
-      },
+
       // 打包字体文件
       { test: /\.(eot|ttf|svg)$/, use: "file-loader" },
     ],
@@ -58,6 +37,12 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
   ],
+  optimization: {
+    usedExports: true,
+    splitChunks: {
+      chunks: "all",
+    },
+  },
   output: {
     filename: "[name]_[hash:6].js",
     path: path.resolve(__dirname, "../dist"),

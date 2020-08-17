@@ -1,2 +1,1 @@
-import { add } from "./index";
-add();
+import "./style.css";

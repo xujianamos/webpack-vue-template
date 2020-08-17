@@ -1,7 +1,9 @@
 {
   "name": "webpack-vue-template",
   "version": "1.0.0",
-  "sideEffects": false,
+  "sideEffects": [
+    "*.css"
+  ],
   "description": "vue结合webpack配置项目模板",
   "private": true,
   "scripts": {
@@ -32,7 +34,9 @@
     "html-webpack-plugin": "^4.3.0",
     "less": "^3.12.2",
     "less-loader": "^6.2.0",
+    "mini-css-extract-plugin": "^0.10.0",
     "node-sass": "^4.14.1",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^9.0.3",
     "style-loader": "^1.2.1",
