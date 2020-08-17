@@ -1,1 +1,2 @@
-console.log("123456");
+import { add } from "./index";
+add();
