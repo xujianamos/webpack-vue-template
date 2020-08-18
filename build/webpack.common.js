@@ -57,7 +57,7 @@ const commonConfig = {
     splitChunks: {
       chunks: "all",
     },
-    // runtimeChunk: "single",
+    runtimeChunk: "single",
   },
   output: {
     filename: "[name]_[contenthash:6].js",
