@@ -1,5 +1,3 @@
-const { merge } = require("webpack-merge");
-const commonConfig = require("./webpack.common.js");
 const webpack = require("webpack");
 const devConfig = {
   mode: "development",
@@ -39,4 +37,4 @@ const devConfig = {
   plugins: [new webpack.HotModuleReplacementPlugin()],
 };
 
-module.exports = merge(commonConfig, devConfig);
+module.exports = devConfig;
