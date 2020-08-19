@@ -1,11 +1,13 @@
-const p1 = new Promise((resolve, reject) => {
-  reject("第一个错");
-});
-
-const p2 = new Promise((resolve, reject) => {
-  resolve("第二个对----");
-});
-
-Promise.allSettled([p1, p2]).then((results) => {
-  console.log(results);
-});
+console.log("123");
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("/service-worker.js")
+      .then((registration) => {
+        console.log("SW registered: ", registration);
+      })
+      .catch((registrationError) => {
+        console.log("SW registration failed: ", registrationError);
+      });
+  });
+}

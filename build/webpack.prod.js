@@ -1,8 +1,9 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const { GenerateSW } = require("workbox-webpack-plugin");
 const prodConfig = {
   mode: "production",
-  devtool: "source-map",
+  devtool: "cheap-module-eval-source-map",
   module: {
     rules: [
       // 打包css文件
@@ -40,7 +41,17 @@ const prodConfig = {
   optimization: {
     minimizer: [new OptimizeCSSAssetsPlugin({})],
   },
-  plugins: [new MiniCssExtractPlugin()],
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+      chunkFilename: "[name].chunk.css",
+    }),
+    //配置pwa
+    new GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true,
+    }),
+  ],
 };
 
 module.exports = prodConfig;
