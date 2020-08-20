@@ -52,7 +52,7 @@ const commonConfig = {
     runtimeChunk: "single",
   },
   output: {
-    filename: "[name]_[contenthash:6].js",
+    filename: "[name]_[hash:6].js",
     path: path.resolve(__dirname, "../dist"),
   },
 };
