@@ -1,9 +1,11 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const AddAssetHtmlWebpackPlugin = require("add-asset-html-webpack-plugin");
 const { merge } = require("webpack-merge");
 const devConfig = require("./webpack.dev");
 const prodConfig = require("./webpack.prod");
+const { DllReferencePlugin } = require("webpack");
 const commonConfig = {
   entry: {
     main: "./src/main.js",
@@ -16,6 +18,9 @@ const commonConfig = {
         use: [
           {
             loader: "babel-loader",
+          },
+          {
+            loader: "eslint-loader",
           },
         ],
       },
@@ -43,6 +48,12 @@ const commonConfig = {
       template: "./public/index.html",
     }),
     new CleanWebpackPlugin(),
+    new AddAssetHtmlWebpackPlugin({
+      filepath: path.resolve(__dirname, "../dll/vendors.dll.js"), //需要添加的文件路径
+    }),
+    new DllReferencePlugin({
+      manifest: path.resolve(__dirname, "../dll/vendors.manifest.json"),
+    }),
   ],
   optimization: {
     usedExports: true,
